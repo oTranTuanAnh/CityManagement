@@ -10,7 +10,11 @@
         Add new city
     </a>
 </p>
-
+<div class="notify">
+    <div th:if="${message}">
+        <h4 th:text="${message}"></h4>
+    </div>
+</div>
 <table border="1px" id="city">
     <thead>
     <tr>
@@ -19,20 +23,22 @@
         <th>Country</th>
         <th>Update</th>
         <th>Delete</th>
+        <th>Detail</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="c,cStatus : ${city}">
         <td th:text="${cStatus.count}"></td>
         <td th:text="${c.getName()}"></td>
-        <td th:text="${c.getCountry()==null}?'':${c.getCountry().getName()}" ></td>
+        <td th:text="${c.getCountry()==null}?'':${c.getCountry().getName()}"></td>
         <td><a th:href="@{/cities/update/{id}(id=${c.getId()})}">Update</a></td>
         <td><a th:href="@{/cities/delete/{id}(id=${c.getId()})}">Delete</a></td>
+        <td><a th:href="@{/cities/detail/{id}(id=${c.getId()})}">Detail</a></td>
     </tr>
     </tbody>
 </table>
 <footer th:fragment="footer">
-    &copy; 2024 Nhom 1
+    &copy; 2024
 </footer>
 </body>
 </html>
