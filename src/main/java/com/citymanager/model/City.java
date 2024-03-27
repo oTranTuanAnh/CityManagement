@@ -14,7 +14,7 @@ public class City {
     @Min(0)
     private double area;
     @Min(0)
-    private int population;
+    private Long population;
     @Min(0)
     private double gdp;
     private String description;
