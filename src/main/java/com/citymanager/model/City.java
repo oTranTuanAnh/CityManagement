@@ -1,6 +1,7 @@
 package com.citymanager.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
 
 @Entity
@@ -10,8 +11,11 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Min(0)
     private double area;
+    @Min(0)
     private int population;
+    @Min(0)
     private double gdp;
     private String description;
     @ManyToOne

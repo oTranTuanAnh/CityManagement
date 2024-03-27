@@ -23,17 +23,16 @@
         <th>Country</th>
         <th>Update</th>
         <th>Delete</th>
-        <th>Detail</th>
+
     </tr>
     </thead>
     <tbody>
     <tr th:each="c,cStatus : ${city}">
         <td th:text="${cStatus.count}"></td>
-        <td th:text="${c.getName()}"></td>
+        <td><a th:href="@{/cities/detail/{id}(id=${c.getId()})}" style="text-decoration-line: none"><span th:text="${c.getName()}"></span></a></td>
         <td th:text="${c.getCountry()==null}?'':${c.getCountry().getName()}"></td>
         <td><a th:href="@{/cities/update/{id}(id=${c.getId()})}">Update</a></td>
         <td><a th:href="@{/cities/delete/{id}(id=${c.getId()})}">Delete</a></td>
-        <td><a th:href="@{/cities/detail/{id}(id=${c.getId()})}">Detail</a></td>
     </tr>
     </tbody>
 </table>
