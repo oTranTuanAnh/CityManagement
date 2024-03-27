@@ -12,11 +12,11 @@ public class City {
     private Long id;
     private String name;
     @Min(0)
-    private double area;
+    private Long area;
     @Min(0)
     private Long population;
     @Min(0)
-    private double gdp;
+    private Long gdp;
     private String description;
     @ManyToOne
     @JoinColumn(name = "country_id")

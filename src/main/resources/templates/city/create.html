@@ -25,15 +25,18 @@
     </div>
     <div>
       <label for="area">Area</label>
-      <input type="text" id="area" th:field="*{area}"/>
+      <input type="number" id="area" th:field="*{area}" oninput="checkArea()"/>
+      <p id="error_area"></p>
     </div>
     <div>
       <label for="population">Population</label>
-      <input type="text" id="population" th:field="*{population}"/>
+      <input type="number" id="population" th:field="*{population}" oninput="checkPopulation()"/>
+      <p id="error_population"></p>
     </div>
     <div>
       <label for="gdp">GDP</label>
-      <input type="text" id="gdp" th:field="*{gdp}"/>
+      <input type="number" id="gdp" th:field="*{gdp}" oninput="checkGdp()"/>
+      <p id="error_gdp"></p>
     </div>
     <div>
       <label for="description">Description</label>
@@ -43,5 +46,32 @@
   </form>
 </div>
 <footer th:replace="/layout :: footer"></footer>
+
+<script>
+  function checkArea(){
+    let area = document.getElementById("area").value;
+    if (area<=0){
+      document.getElementById("error_area").innerText = "Wrong input. Number must be > 0";
+    } else {
+      document.getElementById("error_area").innerText = "";
+    }
+  }
+  function checkPopulation(){
+    let population = document.getElementById("population").value;
+    if (population<=0){
+      document.getElementById("error_population").innerText = "Wrong input. Number must be > 0";
+    } else {
+      document.getElementById("error_population").innerText = "";
+    }
+  }
+  function checkGdp(){
+    let gdp = document.getElementById("gdp").value;
+    if (gdp<=0){
+      document.getElementById("error_gdp").innerText = "Wrong input. Number must be > 0";
+    } else {
+      document.getElementById("error_gdp").innerText = "";
+    }
+  }
+</script>
 </body>
 </html>
