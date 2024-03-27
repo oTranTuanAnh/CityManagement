@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="/layout :: head">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Update</title>
 </head>
 <body>
@@ -25,18 +26,15 @@
         </div>
         <div>
             <label for="area">Area</label>
-            <input type="text" id="area" th:field="*{area}"/>
-            <p id="error_area"></p>
+            <input type="number" min="1" id="area" th:field="*{area}"/>
         </div>
         <div>
             <label for="population">Population</label>
-            <input type="text" id="population" th:field="*{population}"/>
-            <p id="error_population"></p>
+            <input type="number" min="1" id="population" th:field="*{population}"/>
         </div>
         <div>
             <label for="gdp">GDP</label>
-            <input type="text" id="gdp" th:field="*{gdp}"/>
-            <p id="error_gdp"></p>
+            <input type="number" min="1" id="gdp" th:field="*{gdp}"/>
         </div>
         <div>
             <label for="description">Description</label>
@@ -49,31 +47,7 @@
 
 <footer th:replace="/layout :: footer"></footer>
 
-<script>
-    function checkArea(){
-        let area = document.getElementById("area").value;
-        if (area<=0){
-            document.getElementById("error_area").innerText = "Wrong input. Number must be > 0";
-        } else {
-            document.getElementById("error_area").innerText = "";
-        }
-    }
-    function checkPopulation(){
-        let population = document.getElementById("population").value;
-        if (population<=0){
-            document.getElementById("error_population").innerText = "Wrong input. Number must be > 0";
-        } else {
-            document.getElementById("error_population").innerText = "";
-        }
-    }
-    function checkGdp(){
-        let gdp = document.getElementById("gdp").value;
-        if (gdp<=0){
-            document.getElementById("error_gdp").innerText = "Wrong input. Number must be > 0";
-        } else {
-            document.getElementById("error_gdp").innerText = "";
-        }
-    }
-</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
