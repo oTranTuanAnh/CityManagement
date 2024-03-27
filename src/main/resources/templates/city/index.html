@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <title>List </title>
+</head>
+<body>
+<h3>City List</h3>
+<p>
+    <a th:href="@{/cities/create}">
+        Add new city
+    </a>
+</p>
+
+<table border="1px" id="city">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c,cStatus : ${city}">
+        <td th:text="${cStatus.count}"></td>
+        <td th:text="${c.getName()}"></td>
+        <td th:text="${c.getCountry()==null}?'':${c.getCountry().getName()}" ></td>
+        <td><a th:href="@{/cities/update/{id}(id=${c.getId()})}">Update</a></td>
+        <td><a th:href="@{/cities/delete/{id}(id=${c.getId()})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:fragment="footer">
+    &copy; 2024 Nhom 1
+</footer>
+</body>
+</html>
